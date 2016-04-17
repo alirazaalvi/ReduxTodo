@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addTodo, deleteTodo } from '../actions';
+import { addTodo, deleteTodo } from '../actions/todoActions';
 
 class Todos extends React.Component {
   onChange(e) {
@@ -17,7 +17,6 @@ class Todos extends React.Component {
       <div>
         <h1>Todo List</h1>
         <div>
-          <h3>New</h3>
           <input type="text" onKeyUp={this.onChange.bind(this)}/>
         </div>
 
