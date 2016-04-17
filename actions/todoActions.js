@@ -1,29 +1,30 @@
+import { ACTIONS } from '../constants/todoConstants';
+
 export function addTodo(todo){
   return {
-    type: 'addTodo',
+    type: ACTIONS.ADD_TODO,
     todo
   }
 }
 
 export function deleteTodo(index){
   return {
-    type: 'deleteTodo',
+    type: ACTIONS.DELETE_TODO,
     index
   }
 }
 
-export function fetchPosts(subreddit) {
+export function fetchPosts() {
   return dispatch => {
     return fetch(`http://jsonplaceholder.typicode.com/posts`)
       .then(response => response.json())
-      .then(json => dispatch(receivePosts(subreddit, json)))
+      .then(json => dispatch(receivePosts(json)))
   }
 }
 
-
-export function receivePosts(subreddit, json) {
+export function receivePosts(json) {
   return {
-    type: 'receivePosts',
+    type:  ACTIONS.RECEIVE_TODOS,
     todos: json.map(child => child.title)
   }
 }
