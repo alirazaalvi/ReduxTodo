@@ -9,10 +9,6 @@ let store = createStore(
   applyMiddleware(reduxThunk)
 );
 
-store.dispatch(fetchPosts('reactjs')).then(() =>
-  console.log(store.getState())
-)
-
 export default store;
 
 

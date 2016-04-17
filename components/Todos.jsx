@@ -1,8 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addTodo, deleteTodo } from '../actions/todoActions';
+import { fetchPosts, addTodo, deleteTodo } from '../actions/todoActions';
 
 class Todos extends React.Component {
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(fetchPosts()).then(() =>
+      console.log('data recieved')
+    );
+  }
+
   onChange(e) {
       const { dispatch } = this.props
       if(e.keyCode == 13){
