@@ -14,15 +14,15 @@ export function deleteTodo(index){
   }
 }
 
-export function fetchPosts() {
+export function fetchTodos() {
   return dispatch => {
     return fetch(`http://jsonplaceholder.typicode.com/posts`)
       .then(response => response.json())
-      .then(json => dispatch(receivePosts(json)))
+      .then(json => dispatch(receiveTodos(json)))
   }
 }
 
-export function receivePosts(json) {
+export function receiveTodos(json) {
   return {
     type:  ACTIONS.RECEIVE_TODOS,
     todos: json.map(child => child.title)
