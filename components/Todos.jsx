@@ -22,10 +22,11 @@ class Todos extends React.Component {
   render() {
     const { todos, dispatch } = this.props
     return( 
-      <div>
-        <h1>Todo List</h1>
-        <div>
-          <input type="text" onKeyUp={this.onChange.bind(this)}/>
+      <div className="container">
+        <h1 className="teal-text text-darken-1">Todo List</h1>
+        <div className="input-field col s8">
+          <input id="add_todo" type="text" onKeyUp={this.onChange.bind(this)}/>
+          <label htmlFor="add_todo">Add Todo</label>
         </div>
 
         {todos.map((todo, index) => <TodoItem key={'todo-itemm-'+index} todo = {todo} dispatch = {dispatch} index = {index} /> )}
