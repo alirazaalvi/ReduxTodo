@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchTodos, addTodo, deleteTodo } from '../actions/todoActions';
+import TodoItem from './TodoItem.jsx';
 
 class Todos extends React.Component {
   componentDidMount() {
@@ -27,9 +28,7 @@ class Todos extends React.Component {
           <input type="text" onKeyUp={this.onChange.bind(this)}/>
         </div>
 
-        {todos.map((todo, index) => <p key={index}>{todo} <button onClick={e => {
-          dispatch(deleteTodo(index))
-        }}>X</button></p>)}
+        {todos.map((todo, index) => <TodoItem key={'todo-itemm-'+index} todo = {todo} dispatch = {dispatch} index = {index} /> )}
     </div>);
   }
 }
